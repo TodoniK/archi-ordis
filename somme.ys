@@ -1,0 +1,22 @@
+debut:
+    mrmovl i,%eax
+    isubl 10,%eax
+    jg fin
+    
+    mrmovl sum,%eax
+    mrmovl i,%ebx
+    addl %eax,%ebx
+    rmmovl %ebx,sum
+    
+    mrmovl i,%eax
+    iaddl 1,%eax
+    rmmovl %eax,i
+    
+    jmp debut
+
+fin:
+    halt
+
+.pos 0x100
+sum:    .long 0
+i:      .long 1

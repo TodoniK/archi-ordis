@@ -1,0 +1,25 @@
+debut:
+    mrmovl i,%edi
+    mrmovl taille,%ebp
+    subl %edi,%ebp
+    je fin
+    
+    mrmovl uni,%eax
+    mrmovl un,%ebx
+    addl %eax,%ebx
+    rmmovl %eax,un
+    rmmovl %ebx,uni
+
+    mrmovl i,%esi
+    iaddl 1,%esi
+    rmmovl %esi,i
+    jmp debut
+
+fin:
+    halt
+
+.pos 0x100
+un: .long 1
+uni: .long 1
+taille: .long 16
+i:  .long 3
