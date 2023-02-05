@@ -1,0 +1,27 @@
+debut:
+    mrmovl i,%edi
+    mrmovl taille,%ebp
+    subl %edi,%ebp
+    je fin
+    
+    mrmovl tun,%eax
+    mrmovl tdeux,%ebx
+    addl %eax,%ecx
+    addl %ebx,%ecx
+    rmmovl %eax, tdeux
+    rmmovl %ecx,tun
+    irmovl 0,%ecx
+
+    mrmovl i,%esi
+    iaddl 1,%esi
+    rmmovl %esi,i
+    jmp debut
+
+fin:
+    halt
+
+.pos 0x100
+taille: .long 16
+i:  .long 2
+tun: .long 1
+tdeux: .long 1
