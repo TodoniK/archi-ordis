@@ -1,0 +1,21 @@
+    irmovl 0,%eax
+    irmovl 1,%ebx
+    irmovl 8,%edx
+    irmovl 2,%ecx
+    isubl 10,%ecx
+
+debut:
+    jge fin
+    rrmovl %ebx,%esi
+    addl %eax,%ebx
+    rrmovl %esi,%eax
+    rmmovl %ebx,t(%edi)
+    iaddl 4,%edx
+    iaddl 1,%ecx
+    jmp debut
+fin:
+    halt
+
+.pos 0x100
+t: .long 0
+   .long 1
